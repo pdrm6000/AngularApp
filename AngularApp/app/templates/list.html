@@ -1,0 +1,10 @@
+﻿<div class="jumbotron">
+    <h1>Hello, Angularjs!</h1>
+    <p>This is an angular demo. In this demo we are working with a youtube video application</p>
+</div>
+
+<div class="col-lg-12">
+    <div class="col-md-4" ng-repeat="video in videoList">
+        <video-box video="video" get-thumbnail="getVideoThumbnail(video.youtubeId)" get-link="getVideoLink(video.youtubeId)"/>
+    </div>
+</div>

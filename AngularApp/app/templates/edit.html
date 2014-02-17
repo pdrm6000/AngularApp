@@ -1,0 +1,61 @@
+﻿<div class="col-lg-12">
+
+    <div class="page-header">
+        <h1>Edit video <br/><small>Change the information about your video</small></h1>
+    </div>
+    <div class="well col-lg-10">
+        <div class="col-lg-6">
+            <img width="100%" ng-src="{{getVideoThumbnail(video.youtubeId)}}" alt="{{video.name}}">
+        </div>
+        <div class="col-lg-6">
+
+            <form name="addVideoForm">
+                <fieldset>
+
+                    <label for="videoId">Youtube Video Id:</label>
+                    <input id="videoId" type="text" class="form-control" placeholder="Your video Id..." ng-model="video.youtubeId" />
+                    <br/>
+
+                    <label for="videoName">Video name:</label>
+                    <input id="videoName" type="text" class="form-control" placeholder="Name of your video..." ng-model="video.name" />
+                    <br/>
+
+                    <label for="videoCreationDate">Creation date:</label>
+                    <input id="videoCreationDate" class="form-control" type="text" placeholder="Date of the video..." ng-model="video.creationDate" />
+                    <br/>
+
+                    <label for="videoAuthor">Video author:</label>
+                    <input id="videoAuthor" type="text" class="form-control" placeholder="Author..." ng-model="video.author" />
+                    <br/>
+
+                </fieldset>
+                <br/>
+
+                <button type="submit" class="btn btn-primary" ng-click="saveVideo(video, addVideoForm)">Save</button>
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade" id="actionPerformedModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                Video saved...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
