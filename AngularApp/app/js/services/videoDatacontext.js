@@ -1,49 +1,51 @@
 'use strict';
 
-angularApp.factory('videoDatacontext',function($resource, $q, $http){
+angularApp.factory('videoDatacontext', function ($resource, $q, $http, $timeout) {
 
-    return{
-        getVideoList : function(){
-        	var deferred = $q.defer();
+	return {
+		getVideoList: function () {
+			var deferred = $q.defer();
 
-	        $http({ method: 'GET', url: 'http://localhost:58157/api/Video' })
-		        .success(function(data) {
-			        deferred.resolve(data);
+			$http({ method: 'GET', url: 'http://localhost:58157/api/Video' })
+		        .success(function (data) {
+		        	deferred.resolve(data);
 		        })
-		        .error(function(data, status) {
-			        deferred.reject(status);
+		        .error(function (data, status) {
+		        	deferred.reject(status);
 		        });
-            return deferred.promise;
-        },
-        addVideo : function(video){
-            var deferred = $q.defer();
-            $resource('http://localhost:58157/api/Video', {}, { 'Post': { method: 'POST' } })
+			return deferred.promise;
+		},
+		addVideo: function (video) {
+			var deferred = $q.defer();
+			$resource('http://localhost:58157/api/Video', {}, { 'Post': { method: 'POST' } })
 		        .save(video,
 			        function (response) { deferred.resolve(response) },
 			        function (response) { deferred.resolve(response) }
 		        );
-            return deferred.promise;
-        },
-        getVideo:function(id){
-            var deferred = $q.defer();
-            $resource('http://localhost:58157/api/Video',{id: '@id'},{'Get':{method:'GET',isArray:false,params:{}}})
-                .get({id: id},
-                function(video){
-                    deferred.resolve(video);
-                },
-                function(response){
-                    deferred.reject(response);
-                });
-            return deferred.promise;
-        },
-        saveVideo: function(video){
-            var deferred = $q.defer();
-            $http.put('http://localhost:58157/api/Video',video,{})
-                .success(function(response){deferred.resolve(response)})
-                .error(function(response){deferred.resolve(response)});
-            return deferred.promise;
-        }
-    }
+			return deferred.promise;
+		},
+		getVideo: function (id) {
+			var deferred = $q.defer();
+			$timeout(function() {
+				$resource('http://localhost:58157/api/Video', { id: '@id' }, { 'Get': { method: 'GET', isArray: false, params: {} } })
+					.get({ id: id },
+						function(video) {
+							deferred.resolve(video);
+						},
+						function(response) {
+							deferred.reject(response);
+						});
+			}, 1500);
+			return deferred.promise;
+		},
+		saveVideo: function (video) {
+			var deferred = $q.defer();
+			$http.put('http://localhost:58157/api/Video', video, {})
+                .success(function (response) { deferred.resolve(response) })
+                .error(function (response) { deferred.resolve(response) });
+			return deferred.promise;
+		}
+	}
 });
 
 

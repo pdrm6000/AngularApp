@@ -18,13 +18,14 @@ var angularApp = angular.module('angularApp', ['ngResource', 'ngRoute'])
 		$routeProvider.when('/edit/:id',
             {
                 templateUrl: 'templates/edit.html',
-                controller: 'editVideoController'
+                controller: 'editVideoController',
+                resolve: editVideoController.resolve,
             }
         );
         $routeProvider.when('/edit',
             {
                 templateUrl: 'templates/edit.html',
-                controller: 'editVideoController'
+                controller: 'editVideoController',
             }
         );
 		
