@@ -128,10 +128,12 @@
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\index.html" />
     <Content Include="app\js\app.js" />
-    <Content Include="app\js\controllers\editVideoController.js" />
+    <Content Include="app\js\controllers\editController.js" />
     <Content Include="app\js\controllers\newVideoController.js" />
-    <Content Include="app\js\controllers\videoListController.js" />
+    <Content Include="app\js\controllers\listController.js" />
+    <Content Include="app\js\directives\newVideo.js" />
     <Content Include="app\js\directives\videoBox.js" />
+    <Content Include="app\js\directives\videoTemplate.js" />
     <Content Include="app\js\filters\dateFilter.js" />
     <Content Include="app\js\services\videoDatacontext.js" />
     <Content Include="app\js\services\youtubelProvider.js" />
@@ -400,6 +402,8 @@
     <Content Include="app\lib\angular\i18n\angular-locale_zu.js" />
     <Content Include="app\lib\angular\version.txt" />
     <Content Include="app\lib\bootstrap\bootstrap.js" />
+    <Content Include="app\templates\directives\videoBox2.html" />
+    <Content Include="app\templates\directives\newVideo.html" />
     <Content Include="app\templates\directives\videoBox.html" />
     <Content Include="app\templates\edit.html" />
     <Content Include="app\templates\list.html" />

@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-angularApp.controller('videoListController',
-	function videoListController($scope, $location, videoDatacontext, youtubeProvider) {
+angularApp.controller('listController',
+	function listController($scope, $location, videoDatacontext, youtubeProvider) {
 		videoDatacontext.getVideoList()
 		.then(
 			function (videos) { $scope.videoList = videos; },
@@ -14,6 +14,10 @@ angularApp.controller('videoListController',
 
 		$scope.getVideoLink = function (videoId) {
 			return youtubeProvider.getVideoLink(videoId);
+		};
+
+		$scope.getView = function (video) {
+			return "templates/directives/videoBox.html";
 		};
 	}
 );

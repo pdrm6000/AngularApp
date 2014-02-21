@@ -6,26 +6,25 @@ var angularApp = angular.module('angularApp', ['ngResource', 'ngRoute'])
 		$routeProvider.when('/new',
 			{
 				templateUrl: 'templates/new.html',
-				controller: 'newVideoController'
 			}
 		);
 		$routeProvider.when('/list',
 			{
 				templateUrl: 'templates/list.html',
-				controller: 'videoListController'
+				controller: 'listController'
 			}
 		);
 		$routeProvider.when('/edit/:id',
             {
                 templateUrl: 'templates/edit.html',
-                controller: 'editVideoController',
-                resolve: editVideoController.resolve,
+                controller: 'editController',
+                resolve: editController.resolve,
             }
         );
         $routeProvider.when('/edit',
             {
                 templateUrl: 'templates/edit.html',
-                controller: 'editVideoController',
+                controller: 'editController',
             }
         );
 		

@@ -1,7 +1,7 @@
 ﻿'use strict';
 
-var editVideoController = angularApp.controller('editVideoController',
-	function editVideoController($scope, $route, $location, videoDatacontext, youtubeProvider) {
+var editController = angularApp.controller('editController',
+	function editController($scope, $route, $location, videoDatacontext, youtubeProvider) {
 		var id = $route.current.pathParams.id;
 		$scope.video = $route.current.locals.video;
 
@@ -20,7 +20,7 @@ var editVideoController = angularApp.controller('editVideoController',
 	}
 );
 
-editVideoController.resolve = {
+editController.resolve = {
 	video: function ($q, $route, videoDatacontext) {
 		var deferred = $q.defer();
 		videoDatacontext.getVideo($route.current.pathParams.id).then(function (video) { deferred.resolve(video); });
