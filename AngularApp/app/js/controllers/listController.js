@@ -16,8 +16,5 @@ angularApp.controller('listController',
 			return youtubeProvider.getVideoLink(videoId);
 		};
 
-		$scope.getView = function (video) {
-			return "templates/directives/videoBox.html";
-		};
 	}
 );

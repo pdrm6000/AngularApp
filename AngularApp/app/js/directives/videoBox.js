@@ -4,14 +4,11 @@ angularApp.directive('videoBox', function () {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: function (element, attr,x,y) {
-			return attr.videoTemplate;
-		},
+		templateUrl: 'templates/directives/videoBox.html',
 		scope: {
 			video: "=",
 			getThumbnail: "&",
 			getLink: "&",
-			changeView: "&",
 		}
 	};
 });
